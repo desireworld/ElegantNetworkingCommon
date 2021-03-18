@@ -41,7 +41,7 @@ public class ServiceUtils {
     }
 
     public static Stream<? extends Class<?>> loadClassesFromJarService(JarFile jar, String path) {
-        ZipEntry entry = jar.getEntry(getServicePath(path));
+        ZipEntry entry = jar.getEntry(path);
         if (entry != null) {
             try (InputStream inputStream = jar.getInputStream(entry)) {
                 return loadClassesFromService(inputStream);
